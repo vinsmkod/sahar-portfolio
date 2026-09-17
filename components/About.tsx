@@ -211,7 +211,7 @@ export default function About() {
               className="p-6 bg-gradient-to-br from-indigo-50 to-violet-50/60 dark:from-indigo-950/40 dark:to-violet-950/30 border border-indigo-100/80 dark:border-indigo-900/40 rounded-2xl shadow-sm"
             >
               <p className="text-sm text-indigo-800 dark:text-indigo-200 leading-relaxed italic">
-                &ldquo;Hidup bukan tentang seberapa cepat sampai, tetapi tentang siapa kita setelah melewati perjalanan.&rdquo;
+                &ldquo;Berproses bukan tentang seberapa cepat kita sampai, tetapi tentang seberapa jauh diri kita tumbuh di sepanjang perjalanan.&rdquo;
               </p>
               <p className="mt-3 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
                 — Sahar Dwi Anugrah
