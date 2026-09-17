@@ -40,7 +40,6 @@ export const skillCategories: SkillCategory[] = [
     icon: "Database",
     skills: [
       { name: "MySQL" },
-      { name: "MariaDB" },
       { name: "Database Management" },
     ],
   },
