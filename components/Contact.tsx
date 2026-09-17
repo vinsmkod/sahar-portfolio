@@ -21,7 +21,26 @@ const WHATSAPP_URL =
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardWrapperVariants: Variants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 18,
+    },
+  },
 };
 
 const itemVariants: Variants = {
@@ -29,7 +48,21 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const contactPillVariants: Variants = {
+  hidden: { opacity: 0, y: 25, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 16,
+    },
   },
 };
 
@@ -52,7 +85,7 @@ export default function Contact() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          variants={containerVariants}
+          variants={cardWrapperVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-800 dark:from-indigo-950 dark:via-indigo-900/90 dark:to-violet-950/80 border border-indigo-400/30 dark:border-indigo-700/50 p-8 sm:p-12 lg:p-16 shadow-2xl text-white"
@@ -62,7 +95,12 @@ export default function Contact() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-violet-400/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
           <div className="absolute inset-0 bg-grid opacity-15 pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl mx-auto text-center mb-10">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="relative z-10 max-w-3xl mx-auto text-center mb-10"
+          >
             {/* Section label badge */}
             <motion.div variants={itemVariants} className="inline-block mb-4">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold tracking-widest uppercase text-indigo-100 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
@@ -87,17 +125,20 @@ export default function Contact() {
               Terbuka untuk diskusi mengenai perancangan sistem informasi,
               analisis kebutuhan pengguna, pengembangan web, maupun peluang kerja dan magang.
             </motion.p>
-          </div>
+          </motion.div>
 
           {/* Contact Direct Cards */}
           <motion.div
             variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 mb-10"
           >
             {/* Email Card */}
             <motion.div
-              variants={itemVariants}
-              className="group flex flex-col justify-between p-5 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/15 transition-all duration-200"
+              variants={contactPillVariants}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="group flex flex-col justify-between p-5 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/15 transition-all duration-200 shadow-sm"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white">
@@ -135,8 +176,9 @@ export default function Contact() {
 
             {/* WhatsApp / Phone Card */}
             <motion.div
-              variants={itemVariants}
-              className="group flex flex-col justify-between p-5 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/15 transition-all duration-200"
+              variants={contactPillVariants}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="group flex flex-col justify-between p-5 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/15 transition-all duration-200 shadow-sm"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white">
@@ -173,8 +215,9 @@ export default function Contact() {
 
             {/* Location Card */}
             <motion.div
-              variants={itemVariants}
-              className="flex flex-col justify-between p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15"
+              variants={contactPillVariants}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              className="flex flex-col justify-between p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-white">
@@ -197,15 +240,20 @@ export default function Contact() {
 
           {/* Action CTAs */}
           <motion.div
-            variants={itemVariants}
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
             className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             {/* WhatsApp CTA */}
-            <a
+            <motion.a
+              variants={itemVariants}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl transition-all duration-200 shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-0.5"
+              className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl transition-all duration-200 shadow-lg hover:shadow-emerald-500/30"
             >
               <MessageCircle size={18} />
               <span>Chat via WhatsApp</span>
@@ -213,25 +261,31 @@ export default function Contact() {
                 size={16}
                 className="transition-transform duration-200 group-hover:translate-x-1"
               />
-            </a>
+            </motion.a>
 
             {/* Email CTA */}
-            <a
+            <motion.a
+              variants={itemVariants}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               href={`mailto:${CONTACT_EMAIL}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white hover:bg-gray-100 text-indigo-900 font-semibold rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white hover:bg-gray-100 text-indigo-900 font-semibold rounded-2xl transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <Mail size={18} className="text-indigo-600" />
               <span>Kirim Email Langsung</span>
-            </a>
+            </motion.a>
 
             {/* Direct Phone Call */}
-            <a
+            <motion.a
+              variants={itemVariants}
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
               href={`tel:${CONTACT_PHONE}`}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-2xl border border-white/20 transition-all duration-200"
             >
               <Phone size={16} />
               <span>{CONTACT_PHONE_DISPLAY}</span>
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
