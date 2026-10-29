@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center bg-[#F7F6F1] dark:bg-[#171C1B] pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden transition-colors duration-200"
+      className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-center bg-[#F7F6F1] dark:bg-[#171C1B] pt-24 pb-14 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24 overflow-hidden transition-colors duration-200"
     >
       <div className="absolute top-12 left-4 w-40 h-40 opacity-30 dark:opacity-10 pointer-events-none select-none text-[#6D8577]">
         <svg viewBox="0 0 100 100" fill="currentColor">
@@ -21,47 +21,52 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 site-container w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
-          <div className="lg:col-span-7 flex flex-col items-start">
-            <span
-              data-aos="fade-down"
-              data-aos-delay="60"
-              className="text-sm font-medium tracking-wide text-[#77858A] dark:text-[#9BA7A3] mb-2 block"
-            >
-              Halo, saya
-            </span>
-
-            <h1
-              data-aos="fade-up"
-              data-aos-delay="120"
-              className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#263238] dark:text-[#F2F3EE] tracking-tight leading-[1.08] mb-3"
-            >
-              Sahar Dwi
-              <br />
-              Anugrah
-            </h1>
-
-            <div data-aos="fade-up" data-aos-delay="190" className="mb-6">
-              <span className="text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#77858A] dark:text-[#9BA7A3]">
-                MAHASISWA SISTEM INFORMASI
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 sm:gap-y-8 lg:gap-12 xl:gap-16 items-center">
+          {/* Kolom Kiri di Desktop / Unrolled via contents di Mobile */}
+          <div className="contents lg:flex lg:flex-col lg:col-span-7 lg:items-start">
+            {/* 2. Header Teks: Muncul setelah Foto di Mobile, posisi pertama di Desktop */}
+            <div className="order-2 lg:order-none flex flex-col items-start w-full mt-2 lg:mt-0">
+              <span
+                data-aos="fade-down"
+                data-aos-delay="60"
+                className="text-sm font-medium tracking-wide text-[#77858A] dark:text-[#9BA7A3] mb-2 block"
+              >
+                Halo, saya
               </span>
+
+              <h1
+                data-aos="fade-up"
+                data-aos-delay="120"
+                className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#263238] dark:text-[#F2F3EE] tracking-tight leading-[1.08] mb-3"
+              >
+                Sahar Dwi
+                <br />
+                Anugrah
+              </h1>
+
+              <div data-aos="fade-up" data-aos-delay="190" className="mb-4 sm:mb-6">
+                <span className="text-xs sm:text-sm font-bold tracking-[0.18em] uppercase text-[#77858A] dark:text-[#9BA7A3]">
+                  MAHASISWA SISTEM INFORMASI
+                </span>
+              </div>
+
+              <p
+                data-aos="fade-up"
+                data-aos-delay="260"
+                className="text-base sm:text-lg text-[#4A555B] dark:text-[#D4DBD7] leading-relaxed max-w-xl mb-6 sm:mb-8"
+              >
+                Saya tertarik pada pengembangan web, analisis sistem, dan pemecahan
+                masalah melalui teknologi. Terbiasa bekerja dengan tim,
+                komunikatif, dan selalu ingin belajar hal baru.
+              </p>
             </div>
 
-            <p
-              data-aos="fade-up"
-              data-aos-delay="260"
-              className="text-base sm:text-lg text-[#4A555B] dark:text-[#D4DBD7] leading-relaxed max-w-xl mb-8"
-            >
-              Saya tertarik pada pengembangan web, analisis sistem, dan pemecahan
-              masalah melalui teknologi. Terbiasa bekerja dengan tim,
-              komunikatif, dan selalu ingin belajar hal baru.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
-              <div data-aos="fade-up" data-aos-delay="330">
+            {/* 3. Tombol CTA: Muncul setelah Teks di Mobile & Desktop */}
+            <div className="order-3 lg:order-none flex flex-wrap items-center gap-3 sm:gap-4 mb-8 lg:mb-10 w-full sm:w-auto">
+              <div data-aos="fade-up" data-aos-delay="330" className="w-full sm:w-auto">
                 <a
                   href="#projects"
-                  className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#4F695B] hover:bg-[#3A5044] dark:bg-[#6D8B7B] dark:hover:bg-[#7E9C8B] text-white font-medium text-sm sm:text-base rounded-full transition-all duration-200 shadow-sm hover:shadow"
+                  className="w-full sm:w-auto group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#4F695B] hover:bg-[#3A5044] dark:bg-[#6D8B7B] dark:hover:bg-[#7E9C8B] text-white font-medium text-sm sm:text-base rounded-full transition-all duration-200 shadow-sm hover:shadow"
                 >
                   <span>Lihat Karya Saya</span>
                   <ArrowRight
@@ -71,20 +76,21 @@ export default function Hero() {
                 </a>
               </div>
 
-              <div data-aos="fade-up" data-aos-delay="400">
+              <div data-aos="fade-up" data-aos-delay="400" className="w-full sm:w-auto">
                 <a
                   href="#jasa"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/80 dark:bg-[#252D2A] hover:bg-white dark:hover:bg-[#2F3835] text-[#263238] dark:text-[#F2F3EE] font-medium text-sm sm:text-base rounded-full border border-[#DEE3DD] dark:border-[#2F3835] transition-all duration-200 hover:border-[#CBD5CC]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/80 dark:bg-[#252D2A] hover:bg-white dark:hover:bg-[#2F3835] text-[#263238] dark:text-[#F2F3EE] font-medium text-sm sm:text-base rounded-full border border-[#DEE3DD] dark:border-[#2F3835] transition-all duration-200 hover:border-[#CBD5CC]"
                 >
                   <span>Jasa Website Mahasiswa</span>
                 </a>
               </div>
             </div>
 
+            {/* 4. Skills Summary Strip: Berada setelah Tombol CTA */}
             <div
               data-aos="fade-up"
               data-aos-delay="470"
-              className="pt-6 border-t border-[#DEE3DD]/80 dark:border-[#2F3835] w-full flex flex-wrap items-center gap-x-6 gap-y-3"
+              className="order-4 lg:order-none pt-6 border-t border-[#DEE3DD]/80 dark:border-[#2F3835] w-full flex flex-wrap items-center gap-x-6 gap-y-3"
             >
               <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#4A555B] dark:text-[#D4DBD7]">
                 <Code size={15} className="text-[#6D8577] dark:text-[#83A090]" />
@@ -103,29 +109,32 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* 1. Foto Profil: Paling Atas di Mobile (order-1), Kolom Kanan di Desktop (lg:col-span-5) */}
           <div
             data-aos="zoom-in"
-            data-aos-delay="200"
-            className="lg:col-span-5 relative flex flex-col items-center justify-center"
+            data-aos-delay="150"
+            className="order-1 lg:order-none lg:col-span-5 relative flex flex-col items-center justify-center mb-6 sm:mb-8 lg:my-0 pt-2 pb-5 lg:py-0 w-full"
           >
-            <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[450px] flex items-center justify-center">
+            <div className="relative w-full max-w-[270px] sm:max-w-[360px] lg:max-w-[450px] flex items-center justify-center">
+              {/* Organic Soft Sage Backdrop Frame */}
               <div
-                className="absolute -top-6 -bottom-6 -left-4 -right-4 bg-[#E8EDE8] dark:bg-[#232C28] rounded-[48px] -rotate-1 pointer-events-none transition-colors"
+                className="absolute -top-4 -bottom-4 -left-3 -right-3 sm:-top-6 sm:-bottom-6 sm:-left-4 sm:-right-4 bg-[#E8EDE8] dark:bg-[#232C28] rounded-[44px] sm:rounded-[48px] -rotate-1 pointer-events-none transition-colors"
                 style={{
-                  borderTopLeftRadius: "140px",
-                  borderTopRightRadius: "120px",
-                  borderBottomLeftRadius: "60px",
-                  borderBottomRightRadius: "60px",
+                  borderTopLeftRadius: "135px",
+                  borderTopRightRadius: "115px",
+                  borderBottomLeftRadius: "55px",
+                  borderBottomRightRadius: "55px",
                 }}
               />
 
+              {/* Photo Container */}
               <div
-                className="relative z-10 w-64 h-80 sm:w-72 sm:h-96 lg:w-[320px] lg:h-[420px] xl:w-[340px] xl:h-[440px] overflow-hidden shadow-[0_8px_30px_rgba(38,50,56,0.08)] bg-[#E8EDE8] dark:bg-[#232C28]"
+                className="relative z-10 w-[230px] h-[290px] sm:w-72 sm:h-96 lg:w-[320px] lg:h-[420px] xl:w-[340px] xl:h-[440px] max-w-full overflow-hidden shadow-[0_8px_30px_rgba(38,50,56,0.08)] bg-[#E8EDE8] dark:bg-[#232C28]"
                 style={{
-                  borderTopLeftRadius: "130px",
-                  borderTopRightRadius: "130px",
-                  borderBottomLeftRadius: "48px",
-                  borderBottomRightRadius: "48px",
+                  borderTopLeftRadius: "125px",
+                  borderTopRightRadius: "125px",
+                  borderBottomLeftRadius: "44px",
+                  borderBottomRightRadius: "44px",
                 }}
               >
                 <Image
@@ -134,55 +143,60 @@ export default function Hero() {
                   fill
                   priority
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 260px, (max-width: 1024px) 300px, 340px"
+                  sizes="(max-width: 640px) 230px, (max-width: 1024px) 300px, 340px"
                 />
               </div>
 
+              {/* Floating Profile Info Card */}
               <div
                 data-aos="fade-left"
                 data-aos-delay="360"
-                className="absolute z-20 -bottom-6 -right-2 sm:-right-6 lg:-right-4 bg-white/95 dark:bg-[#252D2A]/95 backdrop-blur-md border border-[#DEE3DD] dark:border-[#2F3835] rounded-2xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col gap-3 min-w-[210px] transition-colors"
+                className="absolute z-20 -bottom-4 right-0 sm:-bottom-6 sm:-right-4 lg:-right-4 bg-white/95 dark:bg-[#252D2A]/95 backdrop-blur-md border border-[#DEE3DD] dark:border-[#2F3835] rounded-2xl p-2.5 sm:p-4 shadow-[0_4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col gap-2 sm:gap-3 max-w-[calc(100%-0.5rem)] sm:min-w-[210px] transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
-                    <GraduationCap size={16} />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
+                    <GraduationCap size={14} className="sm:hidden" />
+                    <GraduationCap size={16} className="hidden sm:block" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-[#263238] dark:text-[#F2F3EE] leading-tight">
+                    <p className="text-[11px] sm:text-xs font-semibold text-[#263238] dark:text-[#F2F3EE] leading-tight">
                       Universitas Subang
                     </p>
-                    <p className="text-[11px] text-[#77858A] dark:text-[#9BA7A3]">Semester 7</p>
+                    <p className="text-[10px] sm:text-[11px] text-[#77858A] dark:text-[#9BA7A3]">Semester 7</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
-                    <Mail size={15} />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
+                    <Mail size={13} className="sm:hidden" />
+                    <Mail size={15} className="hidden sm:block" />
                   </div>
                   <div>
                     <a
                       href="mailto:sahardwianugrah10@gmail.com"
-                      className="text-xs font-medium text-[#263238] dark:text-[#F2F3EE] hover:text-[#4F695B] dark:hover:text-[#83A090] transition-colors leading-tight"
+                      className="text-[11px] sm:text-xs font-medium text-[#263238] dark:text-[#F2F3EE] hover:text-[#4F695B] dark:hover:text-[#83A090] transition-colors leading-tight"
                     >
                       sahardwianugrah10@gmail.com
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
-                    <User size={15} />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0">
+                    <User size={13} className="sm:hidden" />
+                    <User size={15} className="hidden sm:block" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-[#263238] dark:text-[#F2F3EE] leading-tight">
+                    <p className="text-[11px] sm:text-xs font-medium text-[#263238] dark:text-[#F2F3EE] leading-tight">
                       Sahar Dwi Anugrah
                     </p>
-                    <p className="text-[11px] text-[#77858A] dark:text-[#9BA7A3]">Subang, Jawa Barat</p>
+                    <p className="text-[10px] sm:text-[11px] text-[#77858A] dark:text-[#9BA7A3]">Subang, Jawa Barat</p>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Scroll Indicator (Desktop Only) */}
             <div className="mt-14 hidden lg:flex flex-col items-center gap-2 self-end mr-6">
               <span className="text-[10px] font-bold tracking-[0.25em] text-[#77858A] dark:text-[#9BA7A3] uppercase">
                 SCROLL
