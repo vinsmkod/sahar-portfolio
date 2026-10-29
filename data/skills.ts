@@ -1,58 +1,40 @@
-export interface SkillItem {
-  name: string;
-}
-
 export interface SkillCategory {
   id: string;
   title: string;
   icon: string;
-  skills: SkillItem[];
+  skills: string[];
 }
 
 export const skillCategories: SkillCategory[] = [
   {
-    id: "system-analysis",
-    title: "System Analysis",
-    icon: "Layers",
-    skills: [
-      { name: "Requirement Analysis" },
-      { name: "User Requirement" },
-      { name: "System Flow" },
-      { name: "Documentation" },
-    ],
-  },
-  {
     id: "web-development",
     title: "Web Development",
     icon: "Code2",
-    skills: [
-      { name: "Laravel" },
-      { name: "CodeIgniter 4" },
-      { name: "Next.js" },
-      { name: "HTML" },
-      { name: "CSS" },
-      { name: "JavaScript" },
-    ],
+    skills: ["CodeIgniter 4", "Laravel", "Tailwind CSS"],
   },
   {
     id: "database",
     title: "Database",
     icon: "Database",
-    skills: [
-      { name: "MySQL" },
-      { name: "Database Management" },
-    ],
+    skills: ["MySQL", "MariaDB", "Database Management"],
   },
   {
-    id: "tools",
-    title: "Tools",
-    icon: "Wrench",
-    skills: [
-      { name: "Git" },
-      { name: "GitHub" },
-      { name: "Microsoft Word" },
-      { name: "Microsoft Excel" },
-      { name: "Microsoft PowerPoint" },
-    ],
+    id: "system-analysis",
+    title: "System Analysis",
+    icon: "Layers",
+    skills: ["User Needs Analysis", "UML", "SRS"],
+  },
+  {
+    id: "office-tools",
+    title: "Office Tools",
+    icon: "FileText",
+    skills: ["Microsoft Word", "Microsoft Excel", "Microsoft PowerPoint"],
+  },
+  {
+    id: "soft-skills",
+    title: "Soft Skills",
+    icon: "Users",
+    skills: ["Teamwork", "Komunikasi", "Adaptif", "Eager to Learn"],
   },
 ];
+

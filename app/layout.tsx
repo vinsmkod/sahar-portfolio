@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import AOSInit from "@/components/AOSInit";
 import "./globals.css";
 
 const inter = Inter({
@@ -9,41 +10,42 @@ const inter = Inter({
   display: "swap",
 });
 
-const syne = Syne({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-jakarta",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Sahar Dwi Anugrah — System Analyst & Web Developer",
+  title: "Sahar Dwi Anugrah — Mahasiswa Sistem Informasi",
   description:
-    "Portfolio Sahar Dwi Anugrah, mahasiswa Sistem Informasi yang fokus pada system analysis dan web development.",
+    "Portfolio resmi Sahar Dwi Anugrah, mahasiswa Sistem Informasi Universitas Subang dengan minat di bidang Web Development dan System Analysis.",
   keywords: [
     "Sahar Dwi Anugrah",
+    "Sistem Informasi",
+    "Universitas Subang",
     "System Analyst",
     "Web Developer",
-    "Portfolio",
-    "Universitas Subang",
-    "Sistem Informasi",
     "Laravel",
-    "Next.js",
+    "CodeIgniter 4",
+    "Portfolio",
   ],
   authors: [{ name: "Sahar Dwi Anugrah" }],
   creator: "Sahar Dwi Anugrah",
   openGraph: {
     type: "website",
     locale: "id_ID",
-    title: "Sahar Dwi Anugrah — System Analyst & Web Developer",
+    title: "Sahar Dwi Anugrah — Mahasiswa Sistem Informasi",
     description:
-      "Portfolio Sahar Dwi Anugrah, mahasiswa Sistem Informasi yang fokus pada system analysis dan web development.",
-    siteName: "Sahar Dwi Anugrah Portfolio",
+      "Portfolio resmi Sahar Dwi Anugrah, mahasiswa Sistem Informasi Universitas Subang dengan minat di bidang Web Development dan System Analysis.",
+    siteName: "Sahar Dwi Anugrah",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sahar Dwi Anugrah — System Analyst & Web Developer",
+    title: "Sahar Dwi Anugrah — Mahasiswa Sistem Informasi",
     description:
-      "Portfolio Sahar Dwi Anugrah, mahasiswa Sistem Informasi yang fokus pada system analysis dan web development.",
+      "Portfolio resmi Sahar Dwi Anugrah, mahasiswa Sistem Informasi Universitas Subang dengan minat di bidang Web Development dan System Analysis.",
   },
   robots: {
     index: true,
@@ -57,25 +59,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                var saved = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (saved === 'dark' || (!saved && prefersDark)) {
                   document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
                 }
-              } catch(e) {}
+              } catch (e) {}
             `,
           }}
         />
       </head>
-      <body className={`${inter.variable} ${syne.variable} font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${jakarta.variable} font-sans antialiased bg-[#F7F6F1] dark:bg-[#171C1B] text-[#263238] dark:text-[#F2F3EE] transition-colors duration-200`}
+      >
+        <AOSInit />
         {children}
         <Analytics />
       </body>
     </html>
   );
 }
+
+

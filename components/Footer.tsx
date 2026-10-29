@@ -1,96 +1,52 @@
 "use client";
 
-import { Github, Linkedin, Mail, MessageCircle, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, Instagram, Facebook } from "lucide-react";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Real contact details for Sahar Dwi Anugrah:
-// ─────────────────────────────────────────────────────────────────────────────
 const EMAIL = "sahardwianugrah10@gmail.com";
-const PHONE = "081324768193";
-const PHONE_DISPLAY = "+62 813-2476-8193";
-const WHATSAPP_URL = "https://wa.me/6281324768193";
 const GITHUB_URL = "https://github.com/vinsmkod";
 const LINKEDIN_URL = "https://www.linkedin.com/in/sahar-dwi-anugrah-bb658233a/";
-// ─────────────────────────────────────────────────────────────────────────────
-
-const contactLinks = [
-  {
-    icon: Mail,
-    label: "Email",
-    href: `mailto:${EMAIL}`,
-    title: EMAIL,
-  },
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    href: WHATSAPP_URL,
-    title: `WhatsApp: ${PHONE_DISPLAY}`,
-  },
-  {
-    icon: Phone,
-    label: "Telepon",
-    href: `tel:${PHONE}`,
-    title: `Tel: ${PHONE_DISPLAY}`,
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    href: GITHUB_URL,
-    title: "GitHub Profile",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    href: LINKEDIN_URL,
-    title: "LinkedIn Profile",
-  },
-];
+const INSTAGRAM_URL = "https://www.instagram.com/iridescentsahar_/";
+const FACEBOOK_URL = "https://www.facebook.com/SaharMoriarty";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Beranda", href: "#home" },
+  { label: "Tentang", href: "#about" },
+  { label: "Karya", href: "#projects" },
+  { label: "Jasa", href: "#jasa" },
+  { label: "Pengalaman", href: "#experience" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Kontak", href: "#contact" },
 ];
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-[#0d0d18] border-t border-gray-200 dark:border-gray-800/60">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-          {/* Brand & Quick Contacts */}
-          <div className="flex-shrink-0">
-            <div className="font-display font-bold text-2xl text-gray-900 dark:text-white tracking-tight mb-2">
-              SDA.
+    <footer
+      data-aos="fade-up"
+      data-aos-offset="40"
+      className="bg-[#263238] dark:bg-[#121615] text-white border-t border-[#37474F] dark:border-[#1E2523] select-none transition-colors duration-200"
+    >
+      <div className="site-container py-12">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-[#37474F]/80 dark:border-[#1E2523]">
+          {/* Brand Info */}
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#4F695B] dark:bg-[#34463C] text-white flex items-center justify-center font-display font-bold text-sm tracking-wider">
+              SDA
             </div>
-            <p className="text-sm text-gray-400 dark:text-gray-500 max-w-xs leading-relaxed mb-3">
-              Sahar Dwi Anugrah · Information Systems Student · System Analyst & Web Developer
-            </p>
-            <div className="flex flex-col gap-1 text-xs text-gray-500 dark:text-gray-400">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors inline-flex items-center gap-1.5"
-              >
-                <Mail size={13} className="text-indigo-500" />
-                <span>{EMAIL}</span>
-              </a>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
-              >
-                <MessageCircle size={13} className="text-emerald-500" />
-                <span>{PHONE_DISPLAY} (WhatsApp)</span>
-              </a>
+            <div>
+              <p className="font-display font-bold text-base text-white leading-tight">
+                Sahar Dwi Anugrah
+              </p>
+              <p className="text-xs text-[#9EA8AC] mt-0.5">
+                Mahasiswa Sistem Informasi
+              </p>
             </div>
           </div>
 
-          {/* Nav links */}
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
+          {/* Navigation Links */}
+          <div className="flex flex-wrap items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -101,46 +57,75 @@ export default function Footer() {
                     .querySelector(link.href)
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="text-sm text-gray-400 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-xs sm:text-sm text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Contact and Social links */}
-          <div className="flex items-center gap-2.5 flex-wrap">
-            {contactLinks.map((item) => {
-              const Icon = item.icon;
-              const isExternal =
-                item.href.startsWith("http") || item.href.startsWith("https");
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={isExternal ? "_blank" : undefined}
-                  rel={isExternal ? "noopener noreferrer" : undefined}
-                  aria-label={item.label}
-                  title={item.title}
-                  className="p-2.5 rounded-xl text-gray-400 dark:text-gray-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-gray-100 dark:border-gray-800 hover:border-indigo-200 dark:hover:border-indigo-900/50 transition-all duration-200"
-                >
-                  <Icon size={18} />
-                </a>
-              );
-            })}
+          {/* Social Icons */}
+          <div className="flex items-center gap-3">
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="w-9 h-9 rounded-lg bg-white/5 dark:bg-white/[0.04] hover:bg-white/10 text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white flex items-center justify-center border border-white/10 dark:border-white/5 transition-colors"
+            >
+              <Linkedin size={16} />
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+              className="w-9 h-9 rounded-lg bg-white/5 dark:bg-white/[0.04] hover:bg-white/10 text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white flex items-center justify-center border border-white/10 dark:border-white/5 transition-colors"
+            >
+              <Github size={16} />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              className="w-9 h-9 rounded-lg bg-white/5 dark:bg-white/[0.04] hover:bg-white/10 text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white flex items-center justify-center border border-white/10 dark:border-white/5 transition-colors"
+            >
+              <Instagram size={16} />
+            </a>
+            <a
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              title="Facebook"
+              className="w-9 h-9 rounded-lg bg-white/5 dark:bg-white/[0.04] hover:bg-white/10 text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white flex items-center justify-center border border-white/10 dark:border-white/5 transition-colors"
+            >
+              <Facebook size={16} />
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              aria-label="Email"
+              title={EMAIL}
+              className="w-9 h-9 rounded-lg bg-white/5 dark:bg-white/[0.04] hover:bg-white/10 text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white flex items-center justify-center border border-white/10 dark:border-white/5 transition-colors"
+            >
+              <Mail size={16} />
+            </a>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-gray-400 dark:text-gray-600">
-            © {currentYear} Sahar Dwi Anugrah. All rights reserved.
-          </p>
-          <p className="text-xs text-gray-400 dark:text-gray-600">
-            Subang, Indonesia · Universitas Subang
+        {/* Bottom Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9EA8AC]">
+          <p>© {currentYear} Sahar Dwi Anugrah. All rights reserved.</p>
+          <p className="font-serif italic text-white/70">
+            Keep learning, keep growing ◡̈
           </p>
         </div>
       </div>
     </footer>
   );
 }
+

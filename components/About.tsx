@@ -1,223 +1,187 @@
 "use client";
 
-import { motion, useInView, type Variants } from "framer-motion";
-import { useRef } from "react";
-import { GraduationCap, Target, MapPin, CheckCircle2 } from "lucide-react";
+import {
+  GraduationCap,
+  MapPin,
+  Code2,
+  Database,
+  Layers,
+  FileText,
+  Users,
+  Wrench,
+  Quote,
+} from "lucide-react";
 
-const capabilities = [
-  "Analisis kebutuhan pengguna",
-  "Perancangan alur sistem",
-  "Pengembangan aplikasi web",
-  "CRUD & Database management",
-  "Testing & evaluasi sistem",
-  "Dokumentasi sistem",
+const skillCards = [
+  {
+    title: "Web Development",
+    icon: Code2,
+    skills: "Laravel, CodeIgniter 4, Tailwind CSS",
+  },
+  {
+    title: "Database",
+    icon: Database,
+    skills: "MySQL, MariaDB, Database Mgmt",
+  },
+  {
+    title: "System Analysis",
+    icon: Layers,
+    skills: "User Needs Analysis, UML, SRS",
+  },
+  {
+    title: "Office Tools",
+    icon: FileText,
+    skills: "Word, Excel, PowerPoint",
+  },
+  {
+    title: "Soft Skills",
+    icon: Users,
+    skills: "Teamwork, Komunikasi, Adaptif",
+  },
+  {
+    title: "Tools & Workflow",
+    icon: Wrench,
+    skills: "Git, GitHub, VS Code",
+  },
 ];
-
-const infoCards = [
-  {
-    icon: GraduationCap,
-    label: "Education",
-    value: "Universitas Subang",
-    sub: "Sistem Informasi · 2023",
-  },
-  {
-    icon: Target,
-    label: "Focus",
-    value: "System Analysis",
-    sub: "& Web Development",
-  },
-  {
-    icon: MapPin,
-    label: "Based in",
-    value: "Subang, Indonesia",
-    sub: "Jawa Barat",
-  },
-];
-
-const leftColVariants: Variants = {
-  hidden: { opacity: 0, x: -35 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const rightColVariants: Variants = {
-  hidden: { opacity: 0, x: 35 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.12,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const cardItemVariants: Variants = {
-  hidden: { opacity: 0, y: 25, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 18,
-    },
-  },
-};
-
-const capabilityVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9, x: -10 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-    },
-  },
-};
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
     <section
       id="about"
-      ref={ref}
-      className="section-padding bg-white dark:bg-[#0d0d18] relative overflow-hidden"
+      className="py-20 lg:py-28 bg-[#F7F6F1] dark:bg-[#171C1B] border-t border-[#DEE3DD]/70 dark:border-[#2F3835] relative overflow-hidden transition-colors duration-200"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left — Text */}
-          <motion.div
-            variants={leftColVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            <motion.div variants={itemVariants} className="mb-3">
-              <span className="text-xs font-semibold tracking-widest uppercase text-indigo-500 dark:text-indigo-400">
-                About
+      <div id="skills" className="sr-only">
+        Keahlian
+      </div>
+
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14">
+          {/* ── Left Column: Tentang Saya (6 cols) ── */}
+          <div className="lg:col-span-6 flex flex-col justify-between">
+            <div data-aos="fade-up">
+              {/* Section Tag */}
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#77858A] dark:text-[#9BA7A3] block mb-2">
+                TENTANG SAYA
               </span>
-            </motion.div>
 
-            <motion.h2
-              variants={itemVariants}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6"
-            >
-              Who I am.
-            </motion.h2>
+              {/* Heading */}
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#263238] dark:text-[#F2F3EE] tracking-tight mb-5">
+                Siapa Saya?
+              </h2>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 text-base sm:text-lg"
-            >
-              Saya menggabungkan analisis sistem dan pengembangan perangkat lunak
-              untuk membangun aplikasi yang sesuai dengan kebutuhan pengguna.
-            </motion.p>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-gray-500 dark:text-gray-400 leading-relaxed mb-8 text-sm sm:text-base"
-            >
-              Saya mahasiswa Sistem Informasi yang memiliki ketertarikan pada
-              pengembangan perangkat lunak dan analisis sistem. Saya terbiasa
-              memahami kebutuhan pengguna, merancang alur sistem, mengelola
-              database, serta mengembangkan aplikasi berbasis web.
-            </motion.p>
-
-            {/* Capabilities */}
-            <motion.div variants={itemVariants}>
-              <p className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
-                Terbiasa dengan:
+              {/* Description Paragraphs */}
+              <p className="text-base text-[#4A555B] dark:text-[#D4DBD7] leading-relaxed mb-4">
+                Saya adalah mahasiswa Sistem Informasi Universitas Subang semester
+                7. Saya memiliki minat di bidang pengembangan perangkat lunak dan
+                analisis sistem, dengan pengalaman praktik menggunakan CodeIgniter
+                4 dan Laravel.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
-                {capabilities.map((item) => (
-                  <motion.div
-                    key={item}
-                    variants={capabilityVariants}
-                    className="flex items-center gap-2.5 group"
-                  >
-                    <div className="p-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-500 group-hover:scale-110 transition-transform">
-                      <CheckCircle2 size={15} />
-                    </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
-                      {item}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
 
-          {/* Right — Info Cards */}
-          <motion.div
-            variants={rightColVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="flex flex-col gap-4"
-          >
-            {infoCards.map((card) => (
-              <motion.div
-                key={card.label}
-                variants={cardItemVariants}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="flex items-start gap-4 p-5 bg-[#fafafa] dark:bg-white/[0.03] border border-gray-200/80 dark:border-gray-800/60 rounded-2xl card-hover shadow-sm"
+              <p className="text-base text-[#4A555B] dark:text-[#D4DBD7] leading-relaxed mb-8">
+                Saya selalu berusaha meningkatkan kemampuan, baik dalam hal teknis
+                maupun komunikasi, agar dapat memberikan kontribusi yang bermanfaat
+                di lingkungan kerja.
+              </p>
+            </div>
+
+            {/* Bottom row: Info badges + Quote Card */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 pt-2">
+              {/* Left Info Badges (7 cols) */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="sm:col-span-6 flex flex-col gap-3 justify-center"
               >
-                <div className="p-3 bg-indigo-50 dark:bg-indigo-950/60 rounded-xl flex-shrink-0 text-indigo-600 dark:text-indigo-400">
-                  <card.icon size={22} />
+                <div className="flex items-center gap-3 p-3.5 bg-white dark:bg-[#252D2A] rounded-xl border border-[#DEE3DD] dark:border-[#2F3835] shadow-[0_2px_8px_rgba(38,50,56,0.03)] transition-colors">
+                  <div className="w-9 h-9 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <GraduationCap size={18} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[#263238] dark:text-[#F2F3EE] leading-tight">
+                      Universitas Subang
+                    </p>
+                    <p className="text-[11px] text-[#77858A] dark:text-[#9BA7A3] mt-0.5">
+                      Sistem Informasi • Semester 7
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-indigo-500 dark:text-indigo-400 uppercase tracking-widest mb-0.5">
-                    {card.label}
-                  </p>
-                  <p className="font-semibold text-gray-900 dark:text-white text-base">
-                    {card.value}
-                  </p>
-                  <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
-                    {card.sub}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
 
-            {/* Quote card */}
-            <motion.div
-              variants={cardItemVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="p-6 bg-gradient-to-br from-indigo-50 to-violet-50/60 dark:from-indigo-950/40 dark:to-violet-950/30 border border-indigo-100/80 dark:border-indigo-900/40 rounded-2xl shadow-sm"
-            >
-              <p className="text-sm text-indigo-800 dark:text-indigo-200 leading-relaxed italic">
-                &ldquo;Berproses bukan tentang seberapa cepat kita sampai, tetapi tentang seberapa jauh diri kita tumbuh di sepanjang perjalanan.&rdquo;
+                <div className="flex items-center gap-3 p-3.5 bg-white dark:bg-[#252D2A] rounded-xl border border-[#DEE3DD] dark:border-[#2F3835] shadow-[0_2px_8px_rgba(38,50,56,0.03)] transition-colors">
+                  <div className="w-9 h-9 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0 transition-colors">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-[#263238] dark:text-[#F2F3EE] leading-tight">
+                      Subang, Jawa Barat
+                    </p>
+                    <p className="text-[11px] text-[#77858A] dark:text-[#9BA7A3] mt-0.5">
+                      Indonesia
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quote Card (6 cols) */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="160"
+                className="sm:col-span-6 p-5 bg-[#F0F1EB] dark:bg-[#202725] rounded-2xl border border-[#DEE3DD] dark:border-[#2F3835] flex flex-col justify-between transition-colors"
+              >
+                <Quote size={22} className="text-[#6D8577] dark:text-[#83A090] mb-2 rotate-180 opacity-70" />
+                <p className="text-sm font-medium text-[#263238] dark:text-[#F2F3EE] leading-snug italic">
+                  &ldquo;Belajar hari ini, untuk memberi solusi di masa depan.&rdquo;
+                </p>
+                <div className="w-6 h-[2px] bg-[#6D8577] dark:bg-[#83A090] mt-3 rounded-full" />
+              </div>
+            </div>
+          </div>
+
+          {/* ── Right Column: Keahlian (6 cols) ── */}
+          <div className="lg:col-span-6">
+            <div data-aos="fade-up">
+              {/* Section Tag */}
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#77858A] dark:text-[#9BA7A3] block mb-2">
+                KEAHLIAN
+              </span>
+
+              {/* Heading */}
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#263238] dark:text-[#F2F3EE] tracking-tight mb-5">
+                Teknologi yang Saya Gunakan
+              </h2>
+
+              <p className="text-sm text-[#77858A] dark:text-[#9BA7A3] mb-8">
+                Kumpulan kemampuan teknis dan metodologi analisis yang saya terapkan.
               </p>
-              <p className="mt-3 text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-                — Sahar Dwi Anugrah
-              </p>
-            </motion.div>
-          </motion.div>
+            </div>
+
+            {/* Skills 2-Column Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {skillCards.map((card, index) => {
+                const Icon = card.icon;
+                return (
+                  <div
+                    key={card.title}
+                    data-aos="fade-up"
+                    data-aos-delay={80 + (index % 2) * 80 + Math.floor(index / 2) * 50}
+                    className="p-4 bg-white dark:bg-[#252D2A] rounded-xl border border-[#DEE3DD] dark:border-[#2F3835] shadow-[0_2px_8px_rgba(38,50,56,0.03)] hover:border-[#CBD5CC] dark:hover:border-[#3E4A45] transition-colors group flex items-start gap-3.5"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-[#E8EDE8] dark:bg-[#1D2522] text-[#4F695B] dark:text-[#83A090] flex items-center justify-center flex-shrink-0 group-hover:bg-[#4F695B] group-hover:text-white dark:group-hover:bg-[#83A090] dark:group-hover:text-[#171C1B] transition-colors duration-200">
+                      <Icon size={19} />
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-[#263238] dark:text-[#F2F3EE] mb-0.5">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-[#77858A] dark:text-[#9BA7A3] leading-relaxed">
+                        {card.skills}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

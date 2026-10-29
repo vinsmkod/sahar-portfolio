@@ -3,45 +3,38 @@ export interface Project {
   title: string;
   category: string;
   description: string;
-  longDescription?: string;
   technologies: string[];
   url?: string;
-  featured: boolean;
-  status: "completed" | "in-development" | "coming-soon";
+  imageType: "desa" | "disposisi" | "smile";
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Website Desa Jambelaer",
-    category: "Village Information System",
+    title: "Sistem Informasi Profil Desa Jambelaer",
+    category: "Web Application",
     description:
-      "Platform informasi desa untuk membantu penyebaran informasi kepada masyarakat serta memperkenalkan potensi UMKM, wisata, dan budaya Desa Jambelaer.",
-    technologies: ["Laravel", "MySQL", "Tailwind CSS"],
-    url: "https://desajambelaer.sainzlab.my.id/",
-    featured: true,
-    status: "completed",
+      "Website desa untuk menampilkan profil desa, pelayanan publik, dan promosi potensi desa.",
+    technologies: ["Laravel 12", "Tailwind CSS", "MySQL"],
+    imageType: "desa",
   },
   {
     id: 2,
-    title: "BLNTRK Outdoor",
-    category: "Open Trip Booking System",
+    title: "Sistem Disposisi Surat (Magang Setda Subang)",
+    category: "Web Application",
     description:
-      "Sistem booking open trip yang mencakup pengelolaan paket perjalanan, jadwal, kuota, meeting point, dokumen peserta, pembayaran, invoice, review, dan CRM admin.",
-    technologies: ["CodeIgniter 4", "Mysql", "TailwindCSS"],
-    url: undefined,
-    featured: false,
-    status: "coming-soon",
+      "Aplikasi pencatatan surat masuk, disposisi, dan surat keluar pada Bagian Organisasi Sekretariat Daerah Kabupaten Subang.",
+    technologies: ["Laravel 12", "MySQL", "Tailwind CSS"],
+    imageType: "disposisi",
   },
   {
     id: 3,
     title: "Smile Score",
-    category: "AI Education Research Platform",
+    category: "Web Application",
     description:
-      "Konsep platform edukasi kesehatan gigi dan mulut berbasis Artificial Intelligence dengan fitur Smile Score untuk mendukung proses penelitian pada siswa SMK.",
+      "Web edukasi kesehatan gigi berbasis AI dengan fitur Smile Score untuk siswa SMK.",
     technologies: ["Laravel 12", "MySQL", "AI Integration"],
-    url: undefined,
-    featured: false,
-    status: "in-development",
+    imageType: "smile",
   },
 ];
+

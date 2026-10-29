@@ -1,66 +1,48 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useInView, type Variants } from "framer-motion";
 import { projects } from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
-
-const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
+import { ArrowRight } from "lucide-react";
 
 export default function Projects() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
-
   return (
     <section
       id="projects"
-      ref={ref}
-      className="section-padding bg-white dark:bg-[#0d0d18]"
+      className="py-20 lg:py-28 bg-[#F0F1EB]/60 dark:bg-[#202725]/60 border-t border-[#DEE3DD]/70 dark:border-[#2F3835] relative transition-colors duration-200"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="mb-12"
-        >
-          <motion.span
-            variants={itemVariants}
-            className="text-xs font-semibold tracking-widest uppercase text-indigo-500 dark:text-indigo-400 block mb-3"
-          >
-            Projects
-          </motion.span>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <motion.h2
-              variants={itemVariants}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
-            >
-              Things I&apos;ve built.
-            </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-sm text-gray-400 dark:text-gray-500 sm:text-right"
-            >
-              {projects.length} projects
-            </motion.p>
-          </div>
-        </motion.div>
+      <div className="site-container">
+        {/* Section Header */}
+        <div data-aos="fade-up" className="mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[#77858A] dark:text-[#9BA7A3] block mb-2">
+                PROYEK
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-[#263238] dark:text-[#F2F3EE] tracking-tight leading-tight">
+                Karya &amp; Implementasi
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#77858A] dark:text-[#9BA7A3]">
+                Beberapa proyek yang pernah saya kerjakan.
+              </p>
+            </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <a
+              href="https://github.com/vinsmkod"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[#4F695B] dark:text-[#83A090] hover:text-[#3A5044] dark:hover:text-[#A2BAAD] transition-colors pb-1"
+            >
+              <span>Lihat Semua Karya</span>
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* 3-Column Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
