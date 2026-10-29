@@ -23,20 +23,24 @@ sahar/
 │   ├── page.tsx           # Main page
 │   └── globals.css        # Global styles
 ├── components/
+│   ├── AOSInit.tsx        # Inisialisasi AOS (Animate on Scroll)
 │   ├── Navbar.tsx         # Sticky navbar + dark mode toggle
 │   ├── Hero.tsx           # Hero section
-│   ├── About.tsx          # About + info cards
-│   ├── Skills.tsx         # Skills by category
+│   ├── Marquee.tsx        # Infinite marquee strip
+│   ├── About.tsx          # Tentang Saya & Keahlian
 │   ├── Projects.tsx       # Projects grid
 │   ├── ProjectCard.tsx    # Individual project card
-│   ├── Experience.tsx     # Timeline experience
-│   ├── Process.tsx        # How I work - 4 steps
-│   ├── Contact.tsx        # Contact CTA
+│   ├── Services.tsx       # Jasa Website untuk Mahasiswa
+│   ├── Experience.tsx     # Timeline experience & motivational card
+│   ├── FAQ.tsx            # FAQ accordion
+│   ├── Contact.tsx        # Contact social cards
 │   └── Footer.tsx         # Footer + social links
 ├── data/
-│   ├── projects.ts        # ← Edit untuk tambah/ubah project
-│   ├── skills.ts          # ← Edit untuk tambah/ubah skill
-│   └── experience.ts      # ← Edit untuk tambah/ubah pengalaman
+│   ├── projects.ts        # Data portfolio projects
+│   ├── services.ts        # Data paket jasa mahasiswa
+│   ├── experience.ts      # Data timeline pengalaman & pendidikan
+│   ├── faq.ts             # Data FAQ
+│   └── contact.ts         # Data kontak & tautan sosial
 ├── public/
 ├── package.json
 ├── tailwind.config.ts

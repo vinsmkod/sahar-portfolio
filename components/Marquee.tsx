@@ -1,7 +1,5 @@
-"use client";
-
 const items = [
-  "SYSTEM ANALYSIS",
+  "SYSTEM ANALYST",
   "WEB DEVELOPMENT",
   "FRONTEND & BACKEND",
   "DATABASE MANAGEMENT",
@@ -16,7 +14,6 @@ export default function Marquee() {
     >
       <div className="marquee-container w-full overflow-hidden">
         <div className="marquee-track">
-          {/* Repeat twice for continuous infinite loop without any visual jump */}
           {[0, 1].map((copyIndex) => (
             <div
               key={copyIndex}

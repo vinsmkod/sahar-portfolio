@@ -24,7 +24,7 @@ export const experiences: ExperienceItem[] = [
     id: 2,
     year: "2026",
     title: "Freelance Tax Administration",
-    organization: "Self-employed",
+    organization: "CV. FILOSOFI KREASI INDONESIA",
     badge: "Freelance",
     description:
       "Mengerjakan kebutuhan administrasi perpajakan seperti e-Faktur serta SPT bulanan dan tahunan.",

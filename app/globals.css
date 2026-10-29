@@ -136,6 +136,33 @@ body {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Card Interactive Hover Effect (Subtle scale 1.02 + smooth 250ms transition) */
+.card-hover {
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    transform: scale(1.02);
+    z-index: 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover {
+    transition: none !important;
+  }
+  .card-hover:hover {
+    transform: none !important;
+  }
+}
+
 /* Infinite Marquee Track */
 @keyframes marquee-scroll {
   0% {
@@ -165,7 +192,7 @@ body {
 }
 
 /* ── AOS Premium Editorial Motion Overrides ── */
-/* Menyesuaikan jarak gerak AOS menjadi 20-24px (elegan & tidak dramatis) */
+/* Menyesuaikan jarak gerak AOS menjadi 20-24px (elegan, halus & tidak berlebihan) */
 [data-aos="fade-up"] {
   transform: translate3d(0, 22px, 0);
 }
@@ -178,9 +205,34 @@ body {
 [data-aos="fade-left"] {
   transform: translate3d(22px, 0, 0);
 }
+[data-aos="zoom-in"] {
+  transform: scale(0.96);
+}
+[data-aos="zoom-in-up"] {
+  transform: translate3d(0, 20px, 0) scale(0.97);
+}
 
 [data-aos].aos-animate {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Penyesuaian jarak gerak di mobile agar lebih ringan dan bebas horizontal overflow */
+@media (max-width: 640px) {
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 14px, 0);
+  }
+  [data-aos="fade-down"] {
+    transform: translate3d(0, -14px, 0);
+  }
+  [data-aos="fade-right"] {
+    transform: translate3d(-14px, 0, 0);
+  }
+  [data-aos="fade-left"] {
+    transform: translate3d(14px, 0, 0);
+  }
+  [data-aos="zoom-in-up"] {
+    transform: translate3d(0, 12px, 0) scale(0.98);
+  }
 }
 
 /* Accessibility: Matikan efek gerak jika pengguna mengaktifkan prefers-reduced-motion */

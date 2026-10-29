@@ -1,5 +1,3 @@
-"use client";
-
 import { Github, Linkedin, Mail, Instagram, Facebook } from "lucide-react";
 
 const EMAIL = "sahardwianugrah10@gmail.com";
@@ -18,19 +16,17 @@ const navLinks = [
   { label: "Kontak", href: "#contact" },
 ];
 
-
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer
       data-aos="fade-up"
-      data-aos-offset="40"
+      data-aos-offset="30"
       className="bg-[#263238] dark:bg-[#121615] text-white border-t border-[#37474F] dark:border-[#1E2523] select-none transition-colors duration-200"
     >
       <div className="site-container py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-[#37474F]/80 dark:border-[#1E2523]">
-          {/* Brand Info */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#4F695B] dark:bg-[#34463C] text-white flex items-center justify-center font-display font-bold text-sm tracking-wider">
               SDA
@@ -45,18 +41,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
           <div className="flex flex-wrap items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document
-                    .querySelector(link.href)
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
                 className="text-xs sm:text-sm text-[#CBD5CC] dark:text-[#9BA7A3] hover:text-white transition-colors"
               >
                 {link.label}
@@ -64,7 +53,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Social Icons */}
           <div className="flex items-center gap-3">
             <a
               href={LINKEDIN_URL}
@@ -117,7 +105,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9EA8AC]">
           <p>© {currentYear} Sahar Dwi Anugrah. All rights reserved.</p>
           <p className="font-serif italic text-white/70">
@@ -128,4 +115,3 @@ export default function Footer() {
     </footer>
   );
 }
-

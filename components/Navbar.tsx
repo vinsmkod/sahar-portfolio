@@ -23,8 +23,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMounted(true);
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
+    setIsDark(document.documentElement.classList.contains("dark"));
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -88,7 +87,6 @@ export default function Navbar() {
     >
       <nav className="site-container">
         <div className="flex items-center justify-between h-20">
-          {/* Logo / Monogram */}
           <a
             href="#home"
             onClick={(e) => {
@@ -108,7 +106,6 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
@@ -139,9 +136,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right Controls: Theme Toggle & CTA */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle Button */}
             {mounted && (
               <button
                 type="button"
@@ -166,7 +161,6 @@ export default function Navbar() {
               </button>
             )}
 
-            {/* CTA Button */}
             <a
               href="#contact"
               onClick={(e) => {
@@ -182,7 +176,6 @@ export default function Navbar() {
               />
             </a>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Tutup menu" : "Buka menu"}
@@ -194,7 +187,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -243,5 +235,3 @@ export default function Navbar() {
     </header>
   );
 }
-
-

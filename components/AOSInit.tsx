@@ -10,8 +10,8 @@ export default function AOSInit() {
       duration: 750,
       easing: "ease-out-cubic",
       once: true,
-      offset: 80,
-      delay: 50,
+      offset: 70,
+      delay: 30,
       disable: () => {
         // Hormati preferensi prefers-reduced-motion
         return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
